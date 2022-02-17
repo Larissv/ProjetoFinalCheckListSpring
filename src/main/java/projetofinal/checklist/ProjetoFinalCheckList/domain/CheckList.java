@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CheckList {
     private int id;
-    private String saidaRetorno;
+    private String saida;
+    private String retorno;
     private String dataC;
     private String hora;
     private String placa;
@@ -29,7 +30,7 @@ public class CheckList {
     private String pedais;
     private String aberturaPortas;
 
-    public CheckList(int id, String saidaRetorno,
+    public CheckList(int id, String saida, String retorno,
                      String dataC, String hora, String placa, String motorista,
                      String km, String tracao, String calibragemPneu, String estepe,
                      String freioDianteiro, String freioTraseiro, String balanceamento,
@@ -38,7 +39,8 @@ public class CheckList {
                      String placasCaminhao, String cintoSeguranca,
                      String pedais, String aberturaPortas) {
         this.id = id;
-        this.saidaRetorno = saidaRetorno;
+        this.saida = saida;
+        this.retorno = retorno;
         this.dataC = dataC;
         this.hora = hora;
         this.placa = placa;
@@ -61,180 +63,95 @@ public class CheckList {
         this.aberturaPortas = aberturaPortas;
     }
 
+    public String getSaida() {
+        return saida;
+    }
 
-    public int getId() {
-        return id;
+    public String getRetorno() {
+        return retorno;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void isSaidaRetorno() {
-        this.saidaRetorno = saidaRetorno;
-    }
-
-    public void setSaidaRetorno(String saidaRetorno) {
-        this.saidaRetorno = saidaRetorno;
-    }
-
     public String getDataC() {
         return dataC;
-    }
-
-    public void setData(String data) {
-        this.dataC = dataC;
     }
 
     public String getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
     public String getPlaca() {
         return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
     }
 
     public String getMotorista() {
         return motorista;
     }
 
-    public void setMotorista(String motorista) {
-        this.motorista = motorista;
-    }
-
     public String getKm() {
         return km;
-    }
-
-    public void setKm(String km) {
-        this.km = km;
     }
 
     public String getTracao() {
         return tracao;
     }
 
-    public void setTracao(String tracao) {
-        this.tracao = tracao;
-    }
-
     public String getCalibragemPneu() {
         return calibragemPneu;
-    }
-
-    public void setCalibragemPneu(String calibragemPneu) {
-        this.calibragemPneu = calibragemPneu;
     }
 
     public String getEstepe() {
         return estepe;
     }
 
-    public void setEstepe(String estepe) {
-        this.estepe = estepe;
-    }
-
     public String getFreioDianteiro() {
         return freioDianteiro;
-    }
-
-    public void setFreioDianteiro(String freioDianteiro) {
-        this.freioDianteiro = freioDianteiro;
     }
 
     public String getFreioTraseiro() {
         return freioTraseiro;
     }
 
-    public void setFreioTraseiro(String freioTraseiro) {
-        this.freioTraseiro = freioTraseiro;
-    }
-
     public String getBalanceamento() {
         return balanceamento;
-    }
-
-    public void setBalanceamento(String balanceamento) {
-        this.balanceamento = balanceamento;
     }
 
     public String getLimpezaRadiador() {
         return limpezaRadiador;
     }
 
-    public void setLimpezaRadiador(String limpezaRadiador) {
-        this.limpezaRadiador = limpezaRadiador;
-    }
-
     public String getOleoMotor() {
         return oleoMotor;
-    }
-
-    public void setOleoMotor(String oleoMotor) {
-        this.oleoMotor = oleoMotor;
     }
 
     public String getFiltroOleo() {
         return filtroOleo;
     }
 
-    public void setFiltroOleo(String filtroOleo) {
-        this.filtroOleo = filtroOleo;
-    }
-
     public String getParaChoqueDianteiro() {
         return paraChoqueDianteiro;
-    }
-
-    public void setParaChoqueDianteiro(String paraChoqueDianteiro) {
-        this.paraChoqueDianteiro = paraChoqueDianteiro;
     }
 
     public String getParaChoqueTraseiro() {
         return paraChoqueTraseiro;
     }
 
-    public void setParaChoqueTraseiro(String paraChoqueTraseiro) {
-        this.paraChoqueTraseiro = paraChoqueTraseiro;
-    }
-
     public String getPlacasCaminhao() {
         return placasCaminhao;
-    }
-
-    public void setPlacasCaminhao(String placasCaminhao) {
-        this.placasCaminhao = placasCaminhao;
     }
 
     public String getCintoSeguranca() {
         return cintoSeguranca;
     }
 
-    public void setCintoSeguranca(String cintoSeguranca) {
-        this.cintoSeguranca = cintoSeguranca;
-    }
-
     public String getPedais() {
         return pedais;
     }
 
-    public void setPedais(String pedais) {
-        this.pedais = pedais;
-    }
-
     public String getAberturaPortas() {
         return aberturaPortas;
-    }
-
-    public void setAberturaPortas(String aberturaPortas) {
-        this.aberturaPortas = aberturaPortas;
     }
 }
