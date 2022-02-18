@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CheckList {
     private int id;
-    private String saida;
-    private String retorno;
+    private String saidaRetorno;
     private String dataC;
     private String hora;
     private String placa;
@@ -30,7 +29,7 @@ public class CheckList {
     private String pedais;
     private String aberturaPortas;
 
-    public CheckList(int id, String saida, String retorno,
+    public CheckList(int id, String saidaRetorno,
                      String dataC, String hora, String placa, String motorista,
                      String km, String tracao, String calibragemPneu, String estepe,
                      String freioDianteiro, String freioTraseiro, String balanceamento,
@@ -39,8 +38,7 @@ public class CheckList {
                      String placasCaminhao, String cintoSeguranca,
                      String pedais, String aberturaPortas) {
         this.id = id;
-        this.saida = saida;
-        this.retorno = retorno;
+        this.saidaRetorno = saidaRetorno;
         this.dataC = dataC;
         this.hora = hora;
         this.placa = placa;
@@ -63,12 +61,8 @@ public class CheckList {
         this.aberturaPortas = aberturaPortas;
     }
 
-    public String getSaida() {
-        return saida;
-    }
-
-    public String getRetorno() {
-        return retorno;
+    public String getSaidaRetorno() {
+        return saidaRetorno;
     }
 
     public void setId(int id) {

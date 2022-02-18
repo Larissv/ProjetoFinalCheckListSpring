@@ -1,7 +1,6 @@
 create table checklist(
                           id                  bigserial primary key not null,
-                          saida               text,
-                          retorno             text,
+                          saidaRetorno               text,
                           dataC               text,
                           hora                text,
                           placa               text,
