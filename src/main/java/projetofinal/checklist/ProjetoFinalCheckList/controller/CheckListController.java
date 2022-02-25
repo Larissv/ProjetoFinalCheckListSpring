@@ -37,8 +37,13 @@ public class CheckListController {
     }
 
     @PostMapping
-    public ResponseEntity<CheckList> responderCheckList(@RequestBody CheckList checkList) {
-        return new ResponseEntity<>(checkListService.responderCheckList(checkList), HttpStatus.CREATED);
+    public ResponseEntity<CheckList> cadastrarCheckList(@RequestBody CheckList checkList) {
+        return new ResponseEntity<>(checkListService.cadastrarCheckList(checkList), HttpStatus.CREATED);
     }
 
+    @DeleteMapping(path = "/remove/{id}")
+    public ResponseEntity<Void> remove(@PathVariable int id) {
+        checkListService.removeCheckList(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

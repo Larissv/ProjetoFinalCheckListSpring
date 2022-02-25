@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CheckListDAO {
 
-    public CheckList responderCheckList(CheckList checkList) {
+    public CheckList cadastrarCheckList(CheckList checkList) {
         try (Connection connection = new ConnectionFactory().recuperarConexao()) {
             PreparedStatement stm = connection.prepareStatement("INSERT INTO CHECKLIST (saidaRetorno, dataC, " +
                     "hora, placa, motorista, km, tracao, calibragemPneu, estepe, freioDianteiro," +
@@ -52,7 +52,7 @@ public class CheckListDAO {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return null;
+        return checkList;
     }
 
     public List<CheckList> listaTodosCheckLists() {
@@ -146,5 +146,16 @@ public class CheckListDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void removeCheckList(int id) {
+        try (Connection connection = new ConnectionFactory().recuperarConexao()) {
+            PreparedStatement stm = connection.prepareStatement("DELETE FROM CHECKLIST WHERE " +
+                    "ID = ?");
+            stm.setInt(1, id);
+            stm.execute();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

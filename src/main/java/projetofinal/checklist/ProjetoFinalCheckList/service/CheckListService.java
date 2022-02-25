@@ -19,7 +19,11 @@ public class CheckListService {
         return checkListDAO.getCheckListId(id);
     }
 
-    public CheckList responderCheckList(CheckList checkList) {
-        return checkListDAO.responderCheckList(checkList);
+    public CheckList cadastrarCheckList(CheckList checkList) {
+        return checkListDAO.cadastrarCheckList(checkList);
+    }
+
+    public void removeCheckList(int id) {
+        checkListDAO.removeCheckList(id);
     }
 }
