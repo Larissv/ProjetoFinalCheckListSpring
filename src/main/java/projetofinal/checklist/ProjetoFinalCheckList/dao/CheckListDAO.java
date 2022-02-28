@@ -19,7 +19,7 @@ public class CheckListDAO {
                     "freioTraseiro, balanceamento, limpezaRadiador, oleoMotor, filtroOleo," +
                     "paraChoqueDianteiro, paraChoqueTraseiro, placasCaminhao, cintoSeguranca, " +
                     "pedais, aberturaPortas) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
-                    "?, ?, ?, ?, ?, ?)");
+                    "?, ?, ?, ?, ?, ?) RETURNING ID");
             stm.setString(1, checkList.getSaidaRetorno());
             stm.setString(2, checkList.getDataC());
             stm.setString(3, checkList.getHora());
@@ -52,7 +52,7 @@ public class CheckListDAO {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return checkList;
+        return null;
     }
 
     public List<CheckList> listaTodosCheckLists() {
