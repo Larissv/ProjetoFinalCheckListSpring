@@ -1,31 +1,29 @@
-create table checklist(
-                          id                  bigserial primary key not null,
-                          saidaRetorno               text,
-                          dataC               text,
-                          hora                text,
-                          placa               text,
-                          motorista           text,
-                          km                  text,
-                          tracao              text,
-                          calibragemPneu      text,
-                          estepe              text,
-                          freioDianteiro      text,
-                          freioTraseiro       text,
-                          balanceamento       text,
-                          limpezaRadiador     text,
-                          oleoMotor           text,
-                          filtroOleo          text,
-                          parachoqueDianteiro text,
-                          parachoqueTraseiro  text,
-                          placasCaminhao      text,
-                          cintoSeguranca      text,
-                          pedais              text,
-                          aberturaPortas      text
+start transaction;
+create table checklist
+(
+    id                  bigserial primary key not null,
+    saidaretorno        text                  not null,
+    data_hora_sistema   timestamp             not null,
+    datac               text                  not null,
+    hora                text                  not null,
+    placa               text                  not null,
+    motorista           text                  not null,
+    km                  bigint                not null
+        constraint km_positivo check (km >= 0),
+    tracao              text                  not null,
+    calibragempneu      text                  not null,
+    estepe              text                  not null,
+    freiodianteiro      text                  not null,
+    freiotraseiro       text                  not null,
+    balanceamento       text                  not null,
+    limpezaradiador     text                  not null,
+    oleomotor           text                  not null,
+    filtrooleo          text                  not null,
+    parachoquedianteiro text                  not null,
+    parachoquetraseiro  text                  not null,
+    placascaminhao      text                  not null,
+    cintoseguranca      text                  not null,
+    pedais              text                  not null,
+    aberturaportas      text                  not null
 );
-
-select * from checklist;
-
-
-
-
-drop table checklist;
+end transaction;
