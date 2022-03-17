@@ -1,151 +1,60 @@
 package projetofinal.checklist.ProjetoFinalCheckList.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Data
-@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "checklist")
 public class CheckList {
-    private int id;
-    private String saidaRetorno;
-    private String dataC;
-    private String hora;
-    private String placa;
-    private String motorista;
-    private String km;
-    private String tracao;
-    private String calibragemPneu;
-    private String estepe;
-    private String freioDianteiro;
-    private String freioTraseiro;
-    private String balanceamento;
-    private String limpezaRadiador;
-    private String oleoMotor;
-    private String filtroOleo;
-    private String paraChoqueDianteiro;
-    private String paraChoqueTraseiro;
-    private String placasCaminhao;
-    private String cintoSeguranca;
-    private String pedais;
-    private String aberturaPortas;
 
-    public CheckList(int id, String saidaRetorno,
-                     String dataC, String hora, String placa, String motorista,
-                     String km, String tracao, String calibragemPneu, String estepe,
-                     String freioDianteiro, String freioTraseiro, String balanceamento,
-                     String limpezaRadiador, String oleoMotor, String filtroOleo,
-                     String paraChoqueDianteiro, String paraChoqueTraseiro,
-                     String placasCaminhao, String cintoSeguranca,
-                     String pedais, String aberturaPortas) {
-        this.id = id;
-        this.saidaRetorno = saidaRetorno;
-        this.dataC = dataC;
-        this.hora = hora;
-        this.placa = placa;
-        this.motorista = motorista;
-        this.km = km;
-        this.tracao = tracao;
-        this.calibragemPneu = calibragemPneu;
-        this.estepe = estepe;
-        this.freioDianteiro = freioDianteiro;
-        this.freioTraseiro = freioTraseiro;
-        this.balanceamento = balanceamento;
-        this.limpezaRadiador = limpezaRadiador;
-        this.oleoMotor = oleoMotor;
-        this.filtroOleo = filtroOleo;
-        this.paraChoqueDianteiro = paraChoqueDianteiro;
-        this.paraChoqueTraseiro = paraChoqueTraseiro;
-        this.placasCaminhao = placasCaminhao;
-        this.cintoSeguranca = cintoSeguranca;
-        this.pedais = pedais;
-        this.aberturaPortas = aberturaPortas;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column(name = "saidaRetorno")
+    private final String saidaRetorno;
+    @Column(name = "dataC")
+    private final String dataC;
+    @Column(name = "hora")
+    private final String hora;
+    @Column(name = "placa")
+    private final String placa;
+    @Column(name = "motorista")
+    private final String motorista;
+    @Column(name = "km")
+    private final Integer km;
+    @Column(name = "tracao")
+    private final String tracao;
+    @Column(name = "calibragemPneu")
+    private final String calibragemPneu;
+    @Column(name = "estepe")
+    private final String estepe;
+    @Column(name = "freioDianteiro")
+    private final String freioDianteiro;
+    @Column(name = "freioTraseiro")
+    private final String freioTraseiro;
+    @Column(name = "balanceamento")
+    private final String balanceamento;
+    @Column(name = "limpezaRadiador")
+    private final String limpezaRadiador;
+    @Column(name = "oleoMotor")
+    private final String oleoMotor;
+    @Column(name = "filtroOleo")
+    private final String filtroOleo;
+    @Column(name = "paraChoqueDianteiro")
+    private final String paraChoqueDianteiro;
+    @Column(name = "paraChoqueTraseiro")
+    private final String paraChoqueTraseiro;
+    @Column(name = "placasCaminhao")
+    private final String placasCaminhao;
+    @Column(name = "cintoSeguranca")
+    private final String cintoSeguranca;
+    @Column(name = "pedais")
+    private final String pedais;
+    @Column(name = "aberturaPortas")
+    private final String aberturaPortas;
 
-    public String getSaidaRetorno() {
-        return saidaRetorno;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDataC() {
-        return dataC;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public String getPlaca() {
-        return placa;
-    }
-
-    public String getMotorista() {
-        return motorista;
-    }
-
-    public String getKm() {
-        return km;
-    }
-
-    public String getTracao() {
-        return tracao;
-    }
-
-    public String getCalibragemPneu() {
-        return calibragemPneu;
-    }
-
-    public String getEstepe() {
-        return estepe;
-    }
-
-    public String getFreioDianteiro() {
-        return freioDianteiro;
-    }
-
-    public String getFreioTraseiro() {
-        return freioTraseiro;
-    }
-
-    public String getBalanceamento() {
-        return balanceamento;
-    }
-
-    public String getLimpezaRadiador() {
-        return limpezaRadiador;
-    }
-
-    public String getOleoMotor() {
-        return oleoMotor;
-    }
-
-    public String getFiltroOleo() {
-        return filtroOleo;
-    }
-
-    public String getParaChoqueDianteiro() {
-        return paraChoqueDianteiro;
-    }
-
-    public String getParaChoqueTraseiro() {
-        return paraChoqueTraseiro;
-    }
-
-    public String getPlacasCaminhao() {
-        return placasCaminhao;
-    }
-
-    public String getCintoSeguranca() {
-        return cintoSeguranca;
-    }
-
-    public String getPedais() {
-        return pedais;
-    }
-
-    public String getAberturaPortas() {
-        return aberturaPortas;
-    }
 }
