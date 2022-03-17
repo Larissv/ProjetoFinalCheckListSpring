@@ -8,8 +8,8 @@ create table checklist
     hora                text                  not null,
     placa               text                  not null,
     motorista           text                  not null,
-    km                  bigint                  not null,
-    constraint km_positivo check (km >= 0)
+    km                  bigint                not null
+        constraint km_positivo check (km >= 0),
     tracao              text                  not null,
     calibragemPneu      text                  not null,
     estepe              text                  not null,
@@ -27,4 +27,5 @@ create table checklist
     aberturaPortas      text                  not null
 );
 
-end transaction;
+end
+transaction;
