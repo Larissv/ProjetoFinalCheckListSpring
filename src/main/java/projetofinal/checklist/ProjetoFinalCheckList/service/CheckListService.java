@@ -1,15 +1,23 @@
 package projetofinal.checklist.ProjetoFinalCheckList.service;
 
-import org.springframework.stereotype.Service;
-import projetofinal.checklist.ProjetoFinalCheckList.dao.CheckListDao;
-import projetofinal.checklist.ProjetoFinalCheckList.domain.CheckList;
+import projetofinal.checklist.ProjetoFinalCheckList.domain.CheckListEntity;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class CheckListService {
+public interface CheckListService {
 
-    private final CheckListDao checkListDao = new CheckListDao();
+    CheckListEntity save(CheckListEntity checkList);
+
+    void deleteById(Integer checklistId);
+
+    Optional<CheckListEntity> findById(Integer id);
+
+    List<CheckListEntity> findAll();
+
+
+
+//    private final CheckListDao checkListDao = new CheckListDao();
 
 //    public List<CheckList> listaTodosCheckLists() {
 //        return CheckListDao.listaTodosCheckLists();

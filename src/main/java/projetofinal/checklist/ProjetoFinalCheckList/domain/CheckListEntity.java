@@ -2,59 +2,61 @@ package projetofinal.checklist.ProjetoFinalCheckList.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
-@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "checklist")
-public class CheckList {
+@Table(name = "checklist", schema = "public")
+public class CheckListEntity implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "saidaRetorno")
-    private final String saidaRetorno;
+    private  String saidaRetorno;
     @Column(name = "dataC")
-    private final String dataC;
+    private  String dataC;
     @Column(name = "hora")
-    private final String hora;
+    private  String hora;
     @Column(name = "placa")
-    private final String placa;
+    private  String placa;
     @Column(name = "motorista")
-    private final String motorista;
+    private  String motorista;
     @Column(name = "km")
-    private final Integer km;
+    private  Integer km;
     @Column(name = "tracao")
-    private final String tracao;
+    private  String tracao;
     @Column(name = "calibragemPneu")
-    private final String calibragemPneu;
+    private  String calibragemPneu;
     @Column(name = "estepe")
-    private final String estepe;
+    private  String estepe;
     @Column(name = "freioDianteiro")
-    private final String freioDianteiro;
+    private  String freioDianteiro;
     @Column(name = "freioTraseiro")
-    private final String freioTraseiro;
+    private  String freioTraseiro;
     @Column(name = "balanceamento")
-    private final String balanceamento;
+    private  String balanceamento;
     @Column(name = "limpezaRadiador")
-    private final String limpezaRadiador;
+    private  String limpezaRadiador;
     @Column(name = "oleoMotor")
-    private final String oleoMotor;
+    private  String oleoMotor;
     @Column(name = "filtroOleo")
-    private final String filtroOleo;
+    private  String filtroOleo;
     @Column(name = "paraChoqueDianteiro")
-    private final String paraChoqueDianteiro;
+    private  String paraChoqueDianteiro;
     @Column(name = "paraChoqueTraseiro")
-    private final String paraChoqueTraseiro;
+    private  String paraChoqueTraseiro;
     @Column(name = "placasCaminhao")
-    private final String placasCaminhao;
+    private  String placasCaminhao;
     @Column(name = "cintoSeguranca")
-    private final String cintoSeguranca;
+    private  String cintoSeguranca;
     @Column(name = "pedais")
-    private final String pedais;
+    private  String pedais;
     @Column(name = "aberturaPortas")
-    private final String aberturaPortas;
+    private  String aberturaPortas;
 
 }
