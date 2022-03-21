@@ -9,7 +9,6 @@ import projetofinal.checklist.ProjetoFinalCheckList.entity.CheckListEntity;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class CheckListRespostaDto {
 
-    private Integer id;
     private String saida_retorno;
     private String data;
     private String hora;
@@ -33,7 +32,7 @@ public class CheckListRespostaDto {
     private String abertura_portas;
 
     public static CheckListRespostaDto transformaEmDto(CheckListEntity checkListEntity) {
-        return new CheckListRespostaDto(checkListEntity.getId(), checkListEntity.getSaida_retorno(),
+        return new CheckListRespostaDto(checkListEntity.getSaida_retorno(),
                                         checkListEntity.getData(), checkListEntity.getHora(), checkListEntity.getPlaca(),
                                         checkListEntity.getMotorista(), checkListEntity.getKm(),
                                         checkListEntity.getTracao(), checkListEntity.getCalibragem_pneu(),

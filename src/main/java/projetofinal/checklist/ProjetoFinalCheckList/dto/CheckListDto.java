@@ -32,12 +32,11 @@ public class CheckListDto {
         return new CheckListEntity(saida_retorno,
                                    data, hora, placa, motorista, km, tracao,
                                    calibragem_pneu, estepe,
-                                   freio_dianteiro,
-                                   freio_traseiro, balanceamento,
-                                   limpeza_radiador,
-                                   oleo_motor,
-                                   filtro_oleo,
+                                   freio_dianteiro, freio_traseiro,
+                                   balanceamento, limpeza_radiador,
+                                   oleo_motor, filtro_oleo,
                                    parachoque_dianteiro,
-                                   parachoque_traseiro, placas_caminhao, cinto_seguranca, pedais, abertura_portas);
+                                   parachoque_traseiro, placas_caminhao,
+                                   cinto_seguranca, pedais, abertura_portas);
     }
 }
