@@ -7,12 +7,6 @@ import projetofinal.checklist.ProjetoFinalCheckList.domain.CheckListEntity;
 @Repository
 public interface CheckListDao extends JpaRepository<CheckListEntity, Integer> {
 
-//    @Query(value = "select * from checklist(id, saidaRetorno, dataC, hora, placa, motorista, km, tracao, calibragemPneu, estepe, " +
-//            "freioDianteiro, freioTraseiro, balanceamento, limpezaRadiador, oleoMotor, filtroOleo, paraChoqueDianteiro, " +
-//            "paraChoqueTraseiro, placasCaminhao, cintoSeguranca, pedais, aberturaPortas);", nativeQuery = true)
-//    List<CheckList> getAllChecklists(@NonNull final List<CheckList>);
-//
-
 
 //    static CheckList cadastrarCheckList(CheckList checkList) {
 //        try (Connection connection = new ConnectionFactory().recuperarConexao()) {

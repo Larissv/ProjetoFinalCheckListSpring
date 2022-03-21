@@ -15,8 +15,9 @@ import java.util.List;
 @RequestMapping("/checklists")
 public class CheckListController {
 
-    @Autowired
     CheckListService checkListService;
+
+    public CheckListController(final CheckListService checkListService) {this.checkListService = checkListService;}
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)

@@ -13,7 +13,7 @@ public class ConnectionTeste {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         CheckListEntity checkList = entityManager.find(CheckListEntity.class, 1);
-        System.out.println(checkList.getMotorista());
+        System.out.println(checkList);
 
         entityManager.close();
         entityManagerFactory.close();

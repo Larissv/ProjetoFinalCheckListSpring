@@ -1,6 +1,5 @@
 package projetofinal.checklist.ProjetoFinalCheckList.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,9 +15,9 @@ public class CheckListEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "saidaRetorno")
+    @Column(name = "saida_retorno")
     private  String saidaRetorno;
-    @Column(name = "dataC")
+    @Column(name = "data")
     private  String dataC;
     @Column(name = "hora")
     private  String hora;
@@ -30,33 +29,33 @@ public class CheckListEntity implements Serializable{
     private  Integer km;
     @Column(name = "tracao")
     private  String tracao;
-    @Column(name = "calibragemPneu")
+    @Column(name = "calibragem_pneu")
     private  String calibragemPneu;
     @Column(name = "estepe")
     private  String estepe;
-    @Column(name = "freioDianteiro")
+    @Column(name = "freio_dianteiro")
     private  String freioDianteiro;
-    @Column(name = "freioTraseiro")
+    @Column(name = "freio_traseiro")
     private  String freioTraseiro;
     @Column(name = "balanceamento")
     private  String balanceamento;
-    @Column(name = "limpezaRadiador")
+    @Column(name = "limpeza_radiador")
     private  String limpezaRadiador;
-    @Column(name = "oleoMotor")
+    @Column(name = "oleo_motor")
     private  String oleoMotor;
-    @Column(name = "filtroOleo")
+    @Column(name = "filtro_oleo")
     private  String filtroOleo;
-    @Column(name = "paraChoqueDianteiro")
+    @Column(name = "parachoque_dianteiro")
     private  String paraChoqueDianteiro;
-    @Column(name = "paraChoqueTraseiro")
+    @Column(name = "parachoque_traseiro")
     private  String paraChoqueTraseiro;
-    @Column(name = "placasCaminhao")
+    @Column(name = "placas_caminhao")
     private  String placasCaminhao;
-    @Column(name = "cintoSeguranca")
+    @Column(name = "cinto_seguranca")
     private  String cintoSeguranca;
     @Column(name = "pedais")
     private  String pedais;
-    @Column(name = "aberturaPortas")
+    @Column(name = "abertura_portas")
     private  String aberturaPortas;
 
 }
