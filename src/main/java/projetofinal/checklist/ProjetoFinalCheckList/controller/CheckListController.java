@@ -1,9 +1,12 @@
 package projetofinal.checklist.ProjetoFinalCheckList.controller;
 
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListDto;
+import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListRespostaDto;
 import projetofinal.checklist.ProjetoFinalCheckList.entity.CheckListEntity;
 import projetofinal.checklist.ProjetoFinalCheckList.service.CheckListService;
 
@@ -14,9 +17,12 @@ import java.util.List;
 @RequestMapping("/checklists")
 public class CheckListController {
 
-    CheckListService checkListService;
+    private final CheckListService checkListService;
 
-    public CheckListController(final CheckListService checkListService) {this.checkListService = checkListService;}
+    @Autowired
+    public CheckListController(CheckListService checkListService) {
+        this.checkListService = checkListService;
+    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -33,9 +39,9 @@ public class CheckListController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public CheckListEntity cadastrar(@RequestBody CheckListEntity checkList){
-        return checkListService.save(checkList);
+    public ResponseEntity<CheckListRespostaDto> cadastrar(@RequestBody CheckListDto dto) {
+        CheckListEntity checkListEntity = checkListService.save(dto.transformaParaObjeto());
+        return new ResponseEntity<>(CheckListRespostaDto.transformaEmDto(checkListEntity), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/remove/{id}")
