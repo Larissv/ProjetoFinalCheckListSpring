@@ -1,6 +1,6 @@
 package projetofinal.checklist.ProjetoFinalCheckList.service;
 
-import projetofinal.checklist.ProjetoFinalCheckList.domain.CheckListEntity;
+import projetofinal.checklist.ProjetoFinalCheckList.entity.CheckListEntity;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,23 +15,4 @@ public interface CheckListService {
 
     List<CheckListEntity> findAll();
 
-
-
-//    private final CheckListDao checkListDao = new CheckListDao();
-
-//    public List<CheckList> listaTodosCheckLists() {
-//        return CheckListDao.listaTodosCheckLists();
-//    }
-//
-//    public CheckList getCheckListId(final int id) {
-//        return CheckListDao.getCheckListId(id);
-//    }
-//
-//    public CheckList cadastrarCheckList(final CheckList checkList) {
-//        return CheckListDao.cadastrarCheckList(checkList);
-//    }
-//
-//    public void removeCheckList(final int id) {
-//        CheckListDao.removeCheckList(id);
-//    }
 }

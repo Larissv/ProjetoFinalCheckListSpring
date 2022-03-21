@@ -1,4 +1,4 @@
-package projetofinal.checklist.ProjetoFinalCheckList.domain;
+package projetofinal.checklist.ProjetoFinalCheckList.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

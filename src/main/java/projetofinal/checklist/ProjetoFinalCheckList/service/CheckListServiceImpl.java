@@ -2,7 +2,7 @@ package projetofinal.checklist.ProjetoFinalCheckList.service;
 
 import org.springframework.stereotype.Service;
 import projetofinal.checklist.ProjetoFinalCheckList.dao.CheckListDao;
-import projetofinal.checklist.ProjetoFinalCheckList.domain.CheckListEntity;
+import projetofinal.checklist.ProjetoFinalCheckList.entity.CheckListEntity;
 
 import java.util.List;
 import java.util.Optional;
