@@ -9,10 +9,9 @@ public interface CheckListService {
 
     CheckListEntity save(CheckListEntity checkList);
 
-    void deleteById(Integer checklistId);
-
     Optional<CheckListEntity> findById(Integer id);
 
     List<CheckListEntity> findAll();
 
+    void deleteById(Integer checklistId);
 }

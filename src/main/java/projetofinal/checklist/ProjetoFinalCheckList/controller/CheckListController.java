@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListDto;
-import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListRespostaDto;
-import projetofinal.checklist.ProjetoFinalCheckList.entity.CheckListEntity;
+import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListGetDto;
+import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListPostDto;
+import projetofinal.checklist.ProjetoFinalCheckList.mapper.CheckListMapper;
 import projetofinal.checklist.ProjetoFinalCheckList.service.CheckListService;
 
 import java.util.List;
@@ -17,39 +17,39 @@ import java.util.List;
 @RequestMapping("/checklists")
 public class CheckListController {
 
+    private final CheckListMapper checkListMapper;
     private final CheckListService checkListService;
 
     @Autowired
-    public CheckListController(CheckListService checkListService) {
+    public CheckListController(CheckListMapper checkListMapper, CheckListService checkListService) {
+        this.checkListMapper = checkListMapper;
         this.checkListService = checkListService;
     }
 
     @GetMapping
-    @ResponseStatus(HttpStatus.OK)
-    public List<CheckListEntity> listAll() {
-        return this.checkListService.findAll();
+    public ResponseEntity<List<CheckListGetDto>> listAll() {
+        return new ResponseEntity<>(checkListMapper.listAllDto(checkListService.findAll()), HttpStatus.OK);
     }
 
     @GetMapping(path = "/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity getCheckListId(@PathVariable(value = "id") Integer id){
-        return checkListService.findById(id).map(record ->
-                                                         ResponseEntity.ok().body(record))
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<CheckListGetDto> getCheckListId(@PathVariable(value = "id") Integer id) {
+        return new ResponseEntity<>(checkListMapper.checkListGetDto(checkListService.findById(id).get()),
+                                    HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<CheckListRespostaDto> cadastrar(@RequestBody CheckListDto dto) {
-        CheckListEntity checkListEntity = checkListService.save(dto.transformaParaObjeto());
-        return new ResponseEntity<>(CheckListRespostaDto.transformaEmDto(checkListEntity), HttpStatus.CREATED);
+    public ResponseEntity<CheckListGetDto> cadastrar(@RequestBody CheckListPostDto dto) {
+        checkListService.save(checkListMapper.checkListPostDto(dto));
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/remove/{id}")
-    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> remove(@PathVariable Integer id) {
-        return checkListService.findById(id).map(record -> {
-            checkListService.deleteById(id);
-            return ResponseEntity.ok().build();
-        }).orElse(ResponseEntity.notFound().build());
+        checkListService.deleteById(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+        //        return checkListService.findById(id).map(record -> {
+        //            checkListService.deleteById(id);
+        //            return ResponseEntity.ok().build();
+        //        }).orElse(ResponseEntity.notFound().build());
     }
 }

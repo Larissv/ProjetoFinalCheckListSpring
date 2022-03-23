@@ -2,8 +2,8 @@ package projetofinal.checklist.ProjetoFinalCheckList.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import projetofinal.checklist.ProjetoFinalCheckList.dao.CheckListDao;
 import projetofinal.checklist.ProjetoFinalCheckList.entity.CheckListEntity;
+import projetofinal.checklist.ProjetoFinalCheckList.repository.CheckListRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,10 +12,10 @@ import java.util.Optional;
 public class CheckListServiceImpl implements CheckListService{
 
     @Autowired
-    CheckListDao checkListDao;
+    CheckListRepository checkListDao;
 
     @Autowired
-    public CheckListServiceImpl(CheckListDao checkListDao) {
+    public CheckListServiceImpl(CheckListRepository checkListDao) {
         this.checkListDao = checkListDao;
     }
 
