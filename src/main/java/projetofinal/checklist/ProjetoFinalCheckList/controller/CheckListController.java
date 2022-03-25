@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListGetDto;
 import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListPostDto;
+import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListRetornoDto;
 import projetofinal.checklist.ProjetoFinalCheckList.mapper.CheckListMapper;
 import projetofinal.checklist.ProjetoFinalCheckList.service.CheckListService;
 
@@ -27,29 +27,27 @@ public class CheckListController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CheckListGetDto>> listAll() {
+    public ResponseEntity<List<CheckListRetornoDto>> listAll() {
         return new ResponseEntity<>(checkListMapper.listAllDto(checkListService.findAll()), HttpStatus.OK);
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<CheckListGetDto> getCheckListId(@PathVariable(value = "id") Integer id) {
+    public ResponseEntity<CheckListRetornoDto> getCheckListId(@PathVariable(value = "id") Integer id) {
         return new ResponseEntity<>(checkListMapper.checkListGetDto(checkListService.findById(id).get()),
                                     HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<CheckListGetDto> cadastrar(@RequestBody CheckListPostDto dto) {
+    public ResponseEntity<CheckListRetornoDto> cadastrar(@RequestBody CheckListPostDto dto) {
         checkListService.save(checkListMapper.checkListPostDto(dto));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/remove/{id}")
     public ResponseEntity<?> remove(@PathVariable Integer id) {
-        checkListService.deleteById(id);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
-        //        return checkListService.findById(id).map(record -> {
-        //            checkListService.deleteById(id);
-        //            return ResponseEntity.ok().build();
-        //        }).orElse(ResponseEntity.notFound().build());
+        return checkListService.findById(id).map(record -> {
+            checkListService.deleteById(id);
+            return ResponseEntity.ok().build();
+        }).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Erro! Entidade nao encontrada!"));
     }
 }

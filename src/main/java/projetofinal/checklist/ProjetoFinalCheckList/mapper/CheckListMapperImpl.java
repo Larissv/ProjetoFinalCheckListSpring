@@ -1,7 +1,7 @@
 package projetofinal.checklist.ProjetoFinalCheckList.mapper;
 
 import org.springframework.stereotype.Component;
-import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListGetDto;
+import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListRetornoDto;
 import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListPostDto;
 import projetofinal.checklist.ProjetoFinalCheckList.entity.CheckListEntity;
 
@@ -44,28 +44,44 @@ public class CheckListMapperImpl implements CheckListMapper {
     }
 
     @Override
-    public CheckListGetDto checkListGetDto(CheckListEntity checkListEntity) {
+    public CheckListRetornoDto checkListGetDto(CheckListEntity checkListEntity) {
         if (checkListEntity == null) {
             return null;
         }
-        CheckListGetDto checkListGetDto = new CheckListGetDto();
+        CheckListRetornoDto checkListRetornoDto = new CheckListRetornoDto();
 
-        checkListGetDto.setId(checkListEntity.getId());
-        checkListGetDto.setSaida_retorno(checkListEntity.getSaida_retorno());
-        checkListGetDto.setPlaca(checkListEntity.getPlaca());
-        checkListGetDto.setMotorista(checkListEntity.getMotorista());
-        checkListGetDto.setHora(checkListEntity.getHora());
-        checkListGetDto.setData(checkListEntity.getData());
+        checkListRetornoDto.setId(checkListEntity.getId());
+        checkListRetornoDto.setSaida_retorno(checkListEntity.getSaida_retorno());
+        checkListRetornoDto.setPlaca(checkListEntity.getPlaca());
+        checkListRetornoDto.setMotorista(checkListEntity.getMotorista());
+        checkListRetornoDto.setHora(checkListEntity.getHora());
+        checkListRetornoDto.setData(checkListEntity.getData());
+        checkListRetornoDto.setKm(checkListEntity.getKm());
+        checkListRetornoDto.setTracao(checkListEntity.getTracao());
+        checkListRetornoDto.setCalibragem_pneu(checkListEntity.getCalibragem_pneu());
+        checkListRetornoDto.setEstepe(checkListEntity.getEstepe());
+        checkListRetornoDto.setFreio_dianteiro(checkListEntity.getFreio_dianteiro());
+        checkListRetornoDto.setFreio_traseiro(checkListEntity.getFreio_traseiro());
+        checkListRetornoDto.setBalanceamento(checkListEntity.getBalanceamento());
+        checkListRetornoDto.setLimpeza_radiador(checkListEntity.getLimpeza_radiador());
+        checkListRetornoDto.setOleo_motor(checkListEntity.getOleo_motor());
+        checkListRetornoDto.setFiltro_oleo(checkListEntity.getFiltro_oleo());
+        checkListRetornoDto.setParachoque_dianteiro(checkListEntity.getParachoque_dianteiro());
+        checkListRetornoDto.setParachoque_traseiro(checkListEntity.getParachoque_traseiro());
+        checkListRetornoDto.setPlacas_caminhao(checkListEntity.getPlacas_caminhao());
+        checkListRetornoDto.setCinto_seguranca(checkListEntity.getCinto_seguranca());
+        checkListRetornoDto.setPedais(checkListEntity.getPedais());
+        checkListRetornoDto.setAbertura_portas(checkListEntity.getAbertura_portas());
 
-        return checkListGetDto;
+        return checkListRetornoDto;
     }
 
     @Override
-    public List<CheckListGetDto> listAllDto(List<CheckListEntity> checkLists) {
+    public List<CheckListRetornoDto> listAllDto(List<CheckListEntity> checkLists) {
         if (checkLists == null) {
             return null;
         }
-        List<CheckListGetDto> list = new ArrayList<>(checkLists.size());
+        List<CheckListRetornoDto> list = new ArrayList<>(checkLists.size());
         for (CheckListEntity checkListEntity : checkLists) {
             list.add(checkListGetDto(checkListEntity));
         }
