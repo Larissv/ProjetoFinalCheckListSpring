@@ -45,7 +45,7 @@ public class CheckListController {
     }
 
     @DeleteMapping(path = "/remove/{id}")
-    public ResponseEntity<?> remove(@Validated @PathVariable Integer id) {
+    public ResponseEntity<?> remove(@Validated @PathVariable(value = "id") Integer id) {
         return checkListService.findById(id).map(record -> {
             checkListService.deleteById(id);
             return ResponseEntity.ok().build();
