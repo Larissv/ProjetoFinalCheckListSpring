@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListPostDto;
 import projetofinal.checklist.ProjetoFinalCheckList.dto.CheckListRetornoDto;
+import projetofinal.checklist.ProjetoFinalCheckList.entity.CheckListEntity;
 import projetofinal.checklist.ProjetoFinalCheckList.mapper.CheckListMapper;
 import projetofinal.checklist.ProjetoFinalCheckList.service.CheckListService;
 
@@ -34,14 +35,15 @@ public class CheckListController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<CheckListRetornoDto> getCheckListId(@PathVariable(value = "id") Integer id) {
-        return new ResponseEntity<>(checkListMapper.checkListGetDto(checkListService.findById(id).get()),
+        return new ResponseEntity<>(checkListMapper.checkListRetornoDto(checkListService.findById(id).get()),
                                     HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<CheckListRetornoDto> cadastrar(@RequestBody CheckListPostDto dto) {
-        checkListService.save(checkListMapper.checkListPostDto(dto));
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<CheckListPostDto> cadastrar(@RequestBody CheckListPostDto dto) {
+        CheckListEntity checkListEntity = this.checkListMapper.checkListPostDto(dto);
+        checkListService.save(checkListEntity);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping(path = "/remove/{id}")

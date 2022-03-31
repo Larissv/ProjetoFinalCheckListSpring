@@ -12,7 +12,7 @@ public interface CheckListMapper {
 
     CheckListEntity checkListPostDto(CheckListPostDto checkListDto);
 
-    CheckListRetornoDto checkListGetDto(CheckListEntity checkListEntity);
+    CheckListRetornoDto checkListRetornoDto(CheckListEntity checkListEntity);
 
     List<CheckListRetornoDto> listAllDto(List<CheckListEntity> checkLists);
 }

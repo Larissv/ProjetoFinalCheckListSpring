@@ -44,7 +44,7 @@ public class CheckListMapperImpl implements CheckListMapper {
     }
 
     @Override
-    public CheckListRetornoDto checkListGetDto(CheckListEntity checkListEntity) {
+    public CheckListRetornoDto checkListRetornoDto(CheckListEntity checkListEntity) {
         if (checkListEntity == null) {
             return null;
         }
@@ -83,7 +83,7 @@ public class CheckListMapperImpl implements CheckListMapper {
         }
         List<CheckListRetornoDto> list = new ArrayList<>(checkLists.size());
         for (CheckListEntity checkListEntity : checkLists) {
-            list.add(checkListGetDto(checkListEntity));
+            list.add(checkListRetornoDto(checkListEntity));
         }
         return list;
     }
