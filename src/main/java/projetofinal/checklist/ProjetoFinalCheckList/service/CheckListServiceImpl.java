@@ -11,10 +11,11 @@ import java.util.Optional;
 @Service
 public class CheckListServiceImpl implements CheckListService{
 
-    CheckListDao checkListDao;
+    private final CheckListDao checkListDao;
 
     @Autowired
     public CheckListServiceImpl(CheckListDao checkListDao) {
+        super();
         this.checkListDao = checkListDao;
     }
 
