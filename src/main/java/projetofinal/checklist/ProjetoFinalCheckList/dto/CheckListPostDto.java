@@ -1,10 +1,15 @@
 package projetofinal.checklist.ProjetoFinalCheckList.dto;
 
 import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CheckListPostDto {
+
 
     @NotNull
     String saida_retorno;
