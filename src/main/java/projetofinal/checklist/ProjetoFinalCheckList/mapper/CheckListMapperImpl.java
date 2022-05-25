@@ -13,7 +13,7 @@ public class CheckListMapperImpl implements CheckListMapper {
 
     @Override
     public CheckListEntity checkListPostDto(CheckListPostDto checkListPostDto) {
-        if (checkListPostDto == null) {
+        if (checkListPostDto == null ) {
             return null;
         }
         CheckListEntity checkList = new CheckListEntity();
